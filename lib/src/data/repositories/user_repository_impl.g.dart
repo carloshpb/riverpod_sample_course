@@ -1,30 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'firebase_auth_service.dart';
+part of 'user_repository_impl.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$firebaseAuthServiceProviderHash() =>
-    r'019be1edb61c65834bbfa3030a1c9fe282d102d1';
+String _$userRepositoryHash() => r'a8a4bc42c66adaa7e1a85b83ea26c26f7be9ef12';
 
-/// See also [firebaseAuthServiceProvider].
-@ProviderFor(firebaseAuthServiceProvider)
-final firebaseAuthServiceProviderProvider =
-    AutoDisposeProvider<FirebaseAuthService>.internal(
-  firebaseAuthServiceProvider,
-  name: r'firebaseAuthServiceProviderProvider',
+/// See also [userRepository].
+@ProviderFor(userRepository)
+final userRepositoryProvider = AutoDisposeProvider<UserRepository>.internal(
+  userRepository,
+  name: r'userRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$firebaseAuthServiceProviderHash,
+      : _$userRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef FirebaseAuthServiceProviderRef
-    = AutoDisposeProviderRef<FirebaseAuthService>;
+typedef UserRepositoryRef = AutoDisposeProviderRef<UserRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -4,7 +4,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'firebase_auth_service.g.dart';
 
 @riverpod
-FirebaseAuthService firebaseAuthService(FirebaseAuthServiceRef ref) =>
+FirebaseAuthService firebaseAuthServiceProvider(
+        FirebaseAuthServiceProviderRef ref) =>
     FirebaseAuthService._();
 
 class FirebaseAuthService {

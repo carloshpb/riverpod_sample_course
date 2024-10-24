@@ -7,7 +7,7 @@ import '../errors/http_exception.dart';
 part 'http_service.g.dart';
 
 @riverpod
-HttpService httpService(HttpServiceRef ref, String url) =>
+HttpService httpServiceProvider(HttpServiceProviderRef ref, String url) =>
     HttpService._(baseUrl: url);
 
 class HttpService {
@@ -17,17 +17,16 @@ class HttpService {
   HttpService._({required this.baseUrl, Map<String, String>? defaultHeaders})
       : defaultHeaders = defaultHeaders ?? {'Content-Type': 'application/json'};
 
-  Future<http.Response> get(String endpoint,
-      {Map<String, String>? headers}) async {
+  Future<dynamic> get(String endpoint, {Map<String, String>? headers}) async {
     final response = await http.get(
       Uri.parse('$baseUrl$endpoint'),
       headers: {...defaultHeaders, ...?headers},
     );
     _handleResponse(response, 'GET');
-    return response;
+    return json.decode(response.body);
   }
 
-  Future<http.Response> post(String endpoint,
+  Future<dynamic> post(String endpoint,
       {Map<String, String>? headers, dynamic body}) async {
     final response = await http.post(
       Uri.parse('$baseUrl$endpoint'),
@@ -35,10 +34,10 @@ class HttpService {
       body: jsonEncode(body),
     );
     _handleResponse(response, 'POST');
-    return response;
+    return json.decode(response.body);
   }
 
-  Future<http.Response> put(String endpoint,
+  Future<dynamic> put(String endpoint,
       {Map<String, String>? headers, dynamic body}) async {
     final response = await http.put(
       Uri.parse('$baseUrl$endpoint'),
@@ -46,17 +45,17 @@ class HttpService {
       body: jsonEncode(body),
     );
     _handleResponse(response, 'PUT');
-    return response;
+    return json.decode(response.body);
   }
 
-  Future<http.Response> delete(String endpoint,
+  Future<dynamic> delete(String endpoint,
       {Map<String, String>? headers}) async {
     final response = await http.delete(
       Uri.parse('$baseUrl$endpoint'),
       headers: {...defaultHeaders, ...?headers},
     );
     _handleResponse(response, 'DELETE');
-    return response;
+    return json.decode(response.body);
   }
 
   void _handleResponse(http.Response response, String httpMethod) {

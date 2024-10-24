@@ -6,7 +6,8 @@ part of 'http_service.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$httpServiceHash() => r'86ae48b6257f33dacc24f99961c62280898afa48';
+String _$httpServiceProviderHash() =>
+    r'856649649fdcafc83dbdb6c425fc4d9434f07036';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,27 +30,27 @@ class _SystemHash {
   }
 }
 
-/// See also [httpService].
-@ProviderFor(httpService)
-const httpServiceProvider = HttpServiceFamily();
+/// See also [httpServiceProvider].
+@ProviderFor(httpServiceProvider)
+const httpServiceProviderProvider = HttpServiceProviderFamily();
 
-/// See also [httpService].
-class HttpServiceFamily extends Family<HttpService> {
-  /// See also [httpService].
-  const HttpServiceFamily();
+/// See also [httpServiceProvider].
+class HttpServiceProviderFamily extends Family<HttpService> {
+  /// See also [httpServiceProvider].
+  const HttpServiceProviderFamily();
 
-  /// See also [httpService].
-  HttpServiceProvider call(
+  /// See also [httpServiceProvider].
+  HttpServiceProviderProvider call(
     String url,
   ) {
-    return HttpServiceProvider(
+    return HttpServiceProviderProvider(
       url,
     );
   }
 
   @override
-  HttpServiceProvider getProviderOverride(
-    covariant HttpServiceProvider provider,
+  HttpServiceProviderProvider getProviderOverride(
+    covariant HttpServiceProviderProvider provider,
   ) {
     return call(
       provider.url,
@@ -68,32 +69,32 @@ class HttpServiceFamily extends Family<HttpService> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'httpServiceProvider';
+  String? get name => r'httpServiceProviderProvider';
 }
 
-/// See also [httpService].
-class HttpServiceProvider extends AutoDisposeProvider<HttpService> {
-  /// See also [httpService].
-  HttpServiceProvider(
+/// See also [httpServiceProvider].
+class HttpServiceProviderProvider extends AutoDisposeProvider<HttpService> {
+  /// See also [httpServiceProvider].
+  HttpServiceProviderProvider(
     String url,
   ) : this._internal(
-          (ref) => httpService(
-            ref as HttpServiceRef,
+          (ref) => httpServiceProvider(
+            ref as HttpServiceProviderRef,
             url,
           ),
-          from: httpServiceProvider,
-          name: r'httpServiceProvider',
+          from: httpServiceProviderProvider,
+          name: r'httpServiceProviderProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$httpServiceHash,
-          dependencies: HttpServiceFamily._dependencies,
+                  : _$httpServiceProviderHash,
+          dependencies: HttpServiceProviderFamily._dependencies,
           allTransitiveDependencies:
-              HttpServiceFamily._allTransitiveDependencies,
+              HttpServiceProviderFamily._allTransitiveDependencies,
           url: url,
         );
 
-  HttpServiceProvider._internal(
+  HttpServiceProviderProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -107,12 +108,12 @@ class HttpServiceProvider extends AutoDisposeProvider<HttpService> {
 
   @override
   Override overrideWith(
-    HttpService Function(HttpServiceRef provider) create,
+    HttpService Function(HttpServiceProviderRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: HttpServiceProvider._internal(
-        (ref) => create(ref as HttpServiceRef),
+      override: HttpServiceProviderProvider._internal(
+        (ref) => create(ref as HttpServiceProviderRef),
         from: from,
         name: null,
         dependencies: null,
@@ -125,12 +126,12 @@ class HttpServiceProvider extends AutoDisposeProvider<HttpService> {
 
   @override
   AutoDisposeProviderElement<HttpService> createElement() {
-    return _HttpServiceProviderElement(this);
+    return _HttpServiceProviderProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is HttpServiceProvider && other.url == url;
+    return other is HttpServiceProviderProvider && other.url == url;
   }
 
   @override
@@ -142,17 +143,20 @@ class HttpServiceProvider extends AutoDisposeProvider<HttpService> {
   }
 }
 
-mixin HttpServiceRef on AutoDisposeProviderRef<HttpService> {
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin HttpServiceProviderRef on AutoDisposeProviderRef<HttpService> {
   /// The parameter `url` of this provider.
   String get url;
 }
 
-class _HttpServiceProviderElement
-    extends AutoDisposeProviderElement<HttpService> with HttpServiceRef {
-  _HttpServiceProviderElement(super.provider);
+class _HttpServiceProviderProviderElement
+    extends AutoDisposeProviderElement<HttpService>
+    with HttpServiceProviderRef {
+  _HttpServiceProviderProviderElement(super.provider);
 
   @override
-  String get url => (origin as HttpServiceProvider).url;
+  String get url => (origin as HttpServiceProviderProvider).url;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
